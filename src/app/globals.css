@@ -1,26 +1,168 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+	--background: #ffffff;
+	--foreground: #171717;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--font-sans: var(--font-geist-sans);
+	--font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+	:root {
+		--background: #0a0a0a;
+		--foreground: #ededed;
+	}
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+	background: var(--background);
+	color: var(--foreground);
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+	color: rgb(var(--foreground));
+	background: var(--background);
+	font-family: "Montserrat", Arial, sans-serif;
+}
+
+@layer utilities {
+	.text-balance {
+		text-wrap: balance;
+	}
+
+	.animation-delay-300 {
+		animation-delay: 300ms;
+	}
+
+	.animation-delay-500 {
+		animation-delay: 500ms;
+	}
+
+	.animate-pulse-slow {
+		animation: pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	}
+}
+
+@keyframes float {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-20px);
+	}
+}
+
+@keyframes pulse {
+	0%,
+	100% {
+		opacity: 0.2;
+	}
+	50% {
+		opacity: 0.4;
+	}
+}
+
+@keyframes progress {
+	0% {
+		width: 0%;
+	}
+	100% {
+		width: 100%;
+	}
+}
+
+.progress-bar {
+	animation: progress linear forwards;
+	animation-duration: attr(data-duration);
+}
+
+@keyframes shine {
+	0% {
+		left: -100%;
+	}
+	100% {
+		left: 100%;
+	}
+}
+
+.shine {
+	animation: shine 2s infinite;
+}
+
+.scroller {
+	max-width: 100%;
+}
+
+.scroller__inner {
+	padding: 10px 0;
+	display: flex;
+	flex-wrap: nowrap;
+	gap: 16px;
+}
+
+.scroller[data-animated="true"] .scroller__inner {
+	width: max-content;
+	animation: scroll 40s linear infinite;
+}
+
+.scroller[data-animated="true"][data-direction="right"] .scroller__inner {
+	animation-direction: reverse;
+}
+
+.scroller[data-animated="true"][data-speed="slow"] .scroller__inner {
+	animation-duration: 60s;
+}
+
+.scroller[data-animated="true"][data-speed="fast"] .scroller__inner {
+	animation-duration: 20s;
+}
+
+.scroller[data-animated="true"]:hover .scroller__inner {
+	animation-play-state: paused;
+}
+
+@keyframes scroll {
+	to {
+		transform: translate(calc(-50% - 8px));
+	}
+}
+
+/* Ensure the animation starts immediately */
+.scroller {
+	mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+	-webkit-mask: linear-gradient(
+		90deg,
+		transparent,
+		white 20%,
+		white 80%,
+		transparent
+	);
+}
+
+.scroller__inner {
+	width: max-content;
+	animation: scroll 40s linear infinite;
+}
+
+.scroller[data-direction="right"] .scroller__inner {
+	animation-direction: reverse;
+}
+
+.scroller[data-speed="slow"] .scroller__inner {
+	animation-duration: 60s;
+}
+
+.scroller[data-speed="fast"] .scroller__inner {
+	animation-duration: 20s;
+}
+
+.scroller:hover .scroller__inner {
+	animation-play-state: paused;
 }
