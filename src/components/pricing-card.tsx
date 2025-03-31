@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { Gift } from "lucide-react";
 
 interface PricingCardProps {
@@ -12,6 +11,7 @@ interface PricingCardProps {
 	discount?: string;
 	isHighlighted?: boolean;
 	screens?: string;
+	href: string;
 }
 
 export function PricingCard({
@@ -21,6 +21,7 @@ export function PricingCard({
 	originalPrice,
 	discount,
 	isHighlighted = false,
+	href,
 }: PricingCardProps) {
 	const [isHovered, setIsHovered] = useState(false);
 
@@ -83,7 +84,7 @@ export function PricingCard({
 
 				{originalPrice && (
 					<div
-						className={`text-sm mb-2 ${isHighlighted ? "text-black" : "text-white"}`}
+						className={`text-sm mb-2 line-through ${isHighlighted ? "text-black" : "text-white"}`}
 					>
 						De {originalPrice} por apenas:
 					</div>
@@ -91,8 +92,8 @@ export function PricingCard({
 
 				<div className="text-red-600 text-5xl font-bold mb-6">{price}</div>
 
-				<Link
-					href="#"
+				<a
+					href={href}
 					className="relative inline-flex items-center justify-center px-10 py-4 text-lg font-bold text-white bg-gradient-to-br from-red-600 to-red-700 rounded-lg shadow-lg transform transition-all duration-300 ease-out"
 					style={{
 						boxShadow: isHovered
@@ -115,7 +116,7 @@ export function PricingCard({
 							className={`absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-transparent via-white to-transparent skew-x-[45deg] transform transition-all duration-700 ease-out opacity-30 ${isHovered ? "left-full" : "-left-full"}`}
 						/>
 					</div>
-				</Link>
+				</a>
 			</div>
 		</div>
 	);

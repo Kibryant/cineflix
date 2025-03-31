@@ -3,7 +3,9 @@ import { PricingCard } from "./pricing-card";
 const plans = [
 	{
 		name: "MENSAL",
-		price: "R$ 19,90",
+		originalPrice: "R$ 49,90",
+		price: "R$ 34,00",
+		discount: "32%",
 		features: [
 			"Use 3 telas simultaneamente",
 			"Mais de 60.000 conteúdos",
@@ -16,12 +18,13 @@ const plans = [
 			"Programação Adultos [Opcional]",
 			"Pacote Filmes e Série",
 		],
-        discount: "33%",
-        originalPrice: "R$ 29,90",
+		href: "https://pay.kirvano.com/fd5370cc-b5cd-4c95-9ac6-6e1bccfafb5b?aff=4329d5ae-c221-405a-ba7c-d5e4bd8ca443",
 	},
 	{
 		name: "TRIMESTRAL",
-		price: "R$ 39,90",
+		originalPrice: "R$ 88,00",
+		price: "R$ 59,90",
+		discount: "32%",
 		features: [
 			"Use 3 telas simultaneamente",
 			"Mais de 60.000 conteúdos",
@@ -34,12 +37,13 @@ const plans = [
 			"Programação Adultos [Opcional]",
 			"Pacote Filmes e Série",
 		],
-        discount: "33%",
-        originalPrice: "R$ 59,70",
+		href: "https://pay.kirvano.com/e0dd0498-3c81-4249-b14e-f3eee05927e7?aff=4329d5ae-c221-405a-ba7c-d5e4bd8ca443",
 	},
 	{
 		name: "ANUAL",
-		price: "R$ 99,90",
+		originalPrice: "R$ 300,00",
+		price: "R$ 187,90",
+		discount: "37%",
 		features: [
 			"Use 4 telas simultaneamente",
 			"Mais de 60.000 conteúdos",
@@ -52,14 +56,16 @@ const plans = [
 			"Programação Adultos [Opcional]",
 			"Pacote Filmes e Série",
 		],
-        originalPrice: "R$ 185,70",
-        discount: "46%",
+		href: "https://pay.kirvano.com/8161e619-071a-4d9f-a073-5d86e2664cbe?aff=4329d5ae-c221-405a-ba7c-d5e4bd8ca443",
 	},
 ];
 
 export function PricingSection() {
 	return (
-		<section className="py-16 bg-[#1e0000]" id="precos">
+		<section
+			className="py-16 bg-gradient-to-b from-[#120303] to-black"
+			id="precos"
+		>
 			<div className="container mx-auto px-4">
 				<h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">
 					Aproveite essa oportunidade e assine já!
@@ -72,9 +78,10 @@ export function PricingSection() {
 							name={plan.name}
 							price={plan.price}
 							features={plan.features}
-                            originalPrice={plan.originalPrice}
-                            discount={plan.discount}
-                            isHighlighted={plan.name === "ANUAL"}                            
+							originalPrice={plan.originalPrice}
+							discount={plan.discount}
+							isHighlighted={plan.name === "ANUAL"}
+                            href={plan.href}
 						/>
 					))}
 				</div>

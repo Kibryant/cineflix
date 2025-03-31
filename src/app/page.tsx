@@ -101,7 +101,6 @@ export default function LandingPage() {
 				initial="hidden"
 				animate={isLoaded ? "visible" : "hidden"}
 			>
-				{/* Logo with glow effect */}
 				<motion.div className="mb-8 relative" variants={itemVariants}>
 					<Image
 						src="/logo.png?width=300&height=100"
@@ -120,7 +119,6 @@ export default function LandingPage() {
 					<span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-red-600 to-red-800 transform origin-left" />
 				</motion.h1>
 
-				{/* Success message with animated checkmark */}
 				<motion.div
 					className="flex items-center justify-center gap-3 mb-12"
 					variants={itemVariants}
@@ -145,7 +143,6 @@ export default function LandingPage() {
 					</div>
 				</motion.div>
 
-				{/* Video player with stylized frame */}
 				<motion.div
 					className="relative w-full max-w-4xl mx-auto mb-12"
 					variants={itemVariants}
@@ -164,20 +161,11 @@ export default function LandingPage() {
 					</div>
 				</motion.div>
 
-				<motion.div
-					className={`mt-6 transition-all duration-700 ease-out ${showButton ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
-					variants={itemVariants}
-					animate={
-						showButton
-							? { y: 0, opacity: 1, scale: 1 }
-							: { y: 20, opacity: 0, scale: 0.95 }
-					}
-				>
-					{showButton && <ButtonCta href="/inicio" />}
-				</motion.div>
+				<div className="pb-20 pt-6">
+					<ButtonCta href="/inicio" />
+				</div>
 			</motion.div>
 
-			{/* Bottom decorative elements */}
 			<div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black to-transparent z-0" />
 		</div>
 	);

@@ -3,6 +3,8 @@ import { PricingSection } from "@/components/pricing-section";
 import { ButtonCta } from "@/components/button-cta";
 import { GuaranteeSection } from "@/components/guarantee-section";
 import { ThumbnailsSection } from "@/components/thumbnails-section";
+import { WhyCineflixSection } from "@/components/why-cineflix-section";
+import { AppShowcaseSection } from "@/components/app-showcase-section";
 
 export default function Inicio() {
 	return (
@@ -64,7 +66,11 @@ export default function Inicio() {
 					</div>
 				</section>
 
+				<WhyCineflixSection />
+
 				<ThumbnailsSection />
+
+				<AppShowcaseSection />
 
 				<PricingSection />
 
