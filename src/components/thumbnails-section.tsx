@@ -4,16 +4,18 @@ import { useEffect, useRef } from "react"
 import Image from "next/image"
 
 const movieData = [
-  { id: 1, title: "Avengers", path: "/placeholder.svg?height=300&width=200&text=Movie1" },
-  { id: 2, title: "Spider-Man", path: "/placeholder.svg?height=300&width=200&text=Movie2" },
-  { id: 3, title: "Batman", path: "/placeholder.svg?height=300&width=200&text=Movie3" },
-  { id: 4, title: "Wonder Woman", path: "/placeholder.svg?height=300&width=200&text=Movie4" },
-  { id: 5, title: "Black Panther", path: "/placeholder.svg?height=300&width=200&text=Movie5" },
-  { id: 6, title: "Joker", path: "/placeholder.svg?height=300&width=200&text=Movie6" },
-  { id: 7, title: "Inception", path: "/placeholder.svg?height=300&width=200&text=Movie7" },
-  { id: 8, title: "Interstellar", path: "/placeholder.svg?height=300&width=200&text=Movie8" },
-  { id: 9, title: "The Matrix", path: "/placeholder.svg?height=300&width=200&text=Movie9" },
-  { id: 10, title: "Dune", path: "/placeholder.svg?height=300&width=200&text=Movie10" },
+  { id: 1, title: "Avengers", path: "https://oficialcineflick.com/wp-content/uploads/2024/06/IMG-46.webp" },
+  { id: 2, title: "Spider-Man", path: "https://oficialcineflick.com/wp-content/uploads/2024/06/IMG-30.webp" },
+  { id: 3, title: "Batman", path: "https://oficialcineflick.com/wp-content/uploads/2024/06/IMG-33.webp" },
+  { id: 4, title: "Wonder Woman", path: "https://oficialcineflick.com/wp-content/uploads/2024/06/IMG-36.webp" },
+  { id: 5, title: "Black Panther", path: "https://oficialcineflick.com/wp-content/uploads/2024/06/IMG-39.webp" },
+  { id: 6, title: "Joker", path: "https://oficialcineflick.com/wp-content/uploads/2024/06/IMG-42.webp" },
+  { id: 7, title: "Inception", path: "https://oficialcineflick.com/wp-content/uploads/2024/06/IMG-45.webp" },
+  { id: 8, title: "Interstellar", path: "https://oficialcineflick.com/wp-content/uploads/2024/06/IMG-48.webp" },
+  { id: 9, title: "The Matrix", path: "https://oficialcineflick.com/wp-content/uploads/2024/06/IMG-51.webp" },
+  { id: 10, title: "Dune", path: "https://oficialcineflick.com/wp-content/uploads/2024/06/IMG-39.webp" },
+  { id: 11, title: "Deadpool", path: "https://oficialcineflick.com/wp-content/uploads/2024/12/IMG-63.webp" },
+  { id: 12, title: "Sonic", path: "https://oficialcineflick.com/wp-content/uploads/2024/12/IMG-60.webp" },
 ]
 
 export function ThumbnailsSection() {
@@ -48,7 +50,7 @@ export function ThumbnailsSection() {
                 key={`movie-left-${movie.id}-${index}`}
                 className="scroller__item w-[180px] aspect-[2/3] relative rounded-lg overflow-hidden shadow-lg"
               >
-                <Image src={movie.path || "/placeholder.svg"} alt={movie.title} fill className="object-cover" />
+                <Image src={movie.path} alt={movie.title} fill className="object-cover" />
               </div>
             ))}
           </div>
@@ -63,7 +65,7 @@ export function ThumbnailsSection() {
                 key={`movie-right-${movie.id}-${index}`}
                 className="scroller__item w-[180px] aspect-[2/3] relative rounded-lg overflow-hidden shadow-lg"
               >
-                <Image src={movie.path || "/placeholder.svg"} alt={movie.title} fill className="object-cover" />
+                <Image src={movie.path} alt={movie.title} fill className="object-cover" />
               </div>
             ))}
           </div>

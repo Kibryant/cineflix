@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import {
 	Zap,
@@ -30,14 +29,13 @@ export function WhyCineflixSection() {
 		};
 
 		window.addEventListener("scroll", handleScroll);
-		handleScroll(); // Check on initial load
+		handleScroll();
 
 		return () => {
 			window.removeEventListener("scroll", handleScroll);
 		};
 	}, []);
 
-	// Auto-rotate through tabs
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setActiveTab((prev) => (prev + 1) % benefits.length);
@@ -88,7 +86,7 @@ export function WhyCineflixSection() {
 			icon: <DollarSign className="w-10 h-10 text-red-600" />,
 			stats: [
 				{ value: "70%", label: "Economia" },
-				{ value: "R$19,90", label: "A partir de" },
+				{ value: "R$34,00", label: "A partir de" },
 			],
 		},
 	];
@@ -207,17 +205,6 @@ export function WhyCineflixSection() {
 									<div className="text-sm text-gray-400">{stat.label}</div>
 								</div>
 							))}
-						</div>
-
-						{/* Illustration */}
-						<div className="mt-8 relative h-48 rounded-lg overflow-hidden">
-							<Image
-								src={`/placeholder.svg?height=200&width=400&text=Illustration${activeTab + 1}`}
-								alt={benefits[activeTab].title}
-								fill
-								className="object-cover rounded-lg"
-							/>
-							<div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
 						</div>
 					</motion.div>
 				</div>
